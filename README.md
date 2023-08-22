@@ -11,12 +11,16 @@ In the project's directory, run the following command in the terminal of your ch
 ```
 docker-compose up
 ```
+### Create a Docker network
+Enter the following command in your container in Docker Desktop
+```
+docker network create {NETWORK NAME}
+```
 ### Once container is created and running, enter the Monog DB shell
 Enter the following command in your container in Docker Desktop
 ```
 mongosh
 ```
-
 ### Create the required Database and Collections
 Once you have entered the Mongo shell, create the Database with the following command:
 ```
