@@ -1,3 +1,5 @@
+show dbs
+showdbs
 show collections
 db.createCollection("gameCharacter")
 db.createCollection("statisticsLeaderboard")

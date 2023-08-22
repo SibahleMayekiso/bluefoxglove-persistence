@@ -34,3 +34,4 @@
 {"t":{"$date":"2023-08-15T12:35:15.264Z"},"s":"I","c":"MONGOSH","id":1000000007,"ctx":"repl","msg":"Evaluating input","attr":{"input":"db.createCollection(\"gameCharacter\")"}}
 {"t":{"$date":"2023-08-15T12:35:15.268Z"},"s":"I","c":"MONGOSH","id":1000000011,"ctx":"shell-api","msg":"Performed API call","attr":{"method":"createCollection","class":"Database","db":"bluefoxglovePersistenceDB","arguments":{"name":"gameCharacter","options":{}}}}
 {"t":{"$date":"2023-08-15T12:35:21.926Z"},"s":"I","c":"MONGOSH","id":1000000009,"ctx":"shell-api","msg":"Used \"show\" command","attr":{"method":"show collections"}}
+{"t":{"$date":"2023-08-15T13:11:59.133Z"},"s":"I","c":"MONGOSH","id":1000000009,"ctx":"shell-api","msg":"Used \"show\" command","attr":{"method":"show collections"}}
