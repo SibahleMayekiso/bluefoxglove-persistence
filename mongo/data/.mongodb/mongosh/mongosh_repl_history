@@ -1,9 +1,1 @@
 show dbs
-showdbs
-show collections
-db.createCollection("gameCharacter")
-db.createCollection("statisticsLeaderboard")
-db.createCollection("gameSession")
-db.createCollection("userProfile")
-use bluefoxglovePersistenceDB
-show dbs
