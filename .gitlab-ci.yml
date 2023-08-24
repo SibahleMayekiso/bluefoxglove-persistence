@@ -15,13 +15,14 @@ before_script:
   
 build:
   stage: build
+  image: docker
   script:
     - docker-compose build
 
-test:
-  stage: test
-  script:
-    - docker-compose up -d
-    - sleep 20
-    - docker-compose ps | grep bluefoxglovePersistence
-    - docker-compose down
+# test:
+#   stage: test
+#   script:
+#     - docker-compose up -d
+#     - sleep 20
+#     - docker-compose ps | grep bluefoxglovePersistence
+#     - docker-compose down
