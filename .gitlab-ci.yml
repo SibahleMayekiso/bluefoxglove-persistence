@@ -10,9 +10,6 @@ stages:
 variables:
   DOCKER_DRIVER: overlay2
 
-before_script:
-  - docker info
-
 build:
   stage: build
   script:
