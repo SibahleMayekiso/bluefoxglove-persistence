@@ -1,0 +1,21 @@
+image: docker:latest
+
+services:
+  - docker:dind
+  - mongo:latest
+
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  script:
+    - docker build -t bluefoxglove-mongodb .
+
+test:
+  stage: test
+  script:
+    - docker run --name bluefoxglovePersistence -d bluefoxglove-mongodb
+    - sleep 20
+    - docker exec bluefoxglovePersistence mongo --eval "db.adminCommand('ping')"
