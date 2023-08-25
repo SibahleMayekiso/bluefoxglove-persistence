@@ -4,8 +4,8 @@ services:
   - docker:dind
 stages:
   - build
-variables:
-  DOCKER_HOST: "tcp://172.17.0.2:2375"
+# variables:
+#   DOCKER_HOST: "tcp://172.17.0.2:2375"
 before_script:
   - docker info
 build:
