@@ -10,6 +10,8 @@ before_script:
   - docker info
 
 build:
+  tags:
+    - unity
   stage: build
   script:
     - docker-compose build
