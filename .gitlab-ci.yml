@@ -1,14 +1,13 @@
-image: docker/compose:latest
+image: docker:latest
 
 services:
   - docker:dind
-
 stages:
   - build
-
-# before_script:
-#   - docker info
-
+variables:
+  DOCKER_HOST: "tcp://172.17.0.2:2375"
+before_script:
+  - docker info
 build:
 #   tags:
 #     - unity
