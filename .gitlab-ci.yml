@@ -1,21 +1,15 @@
-image:
-  name: docker/compose:latest
-  entrypoint: [""]
+image: docker/compose:latest
 
 services:
   - docker:dind
 
-variables:
-  DOCKER_HOST: tcp://docker:2375/
-  DOCKER_DRIVER: overlay2
+stages:
+  - build
 
 before_script:
-  - docker version
-  - docker-compose version
+  - docker info
 
 build:
   stage: build
   script:
-    - docker-compose down
     - docker-compose build
-    - docker-compose up -d
