@@ -1,16 +1,15 @@
-image: docker:latest
+image: docker
+
+variables:
+  DOCKER_HOST: tcp://docker:2375
 
 services:
   - docker:dind
+
 stages:
   - build
-variables:
-  DOCKER_HOST: "tcp://dind:2375"
-before_script:
-  - docker info
+
 build:
-#   tags:
-#     - unity
   stage: build
   script:
-    - docker-compose build
+    - docker build -t bluefoxglove-mongodb .
