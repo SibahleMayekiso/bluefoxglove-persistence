@@ -4,7 +4,8 @@ variables:
   DOCKER_HOST: tcp://docker:2375
 
 services:
-  - docker:dind
+  - name: docker:dind
+    alias: docker
 
 stages:
   - build
