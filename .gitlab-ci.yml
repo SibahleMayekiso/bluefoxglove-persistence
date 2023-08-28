@@ -1,16 +1,27 @@
-image: docker
-
-variables:
-  DOCKER_HOST: tcp://docker:2375
+image: mongo:latest
 
 services:
-  - name: docker:dind
-    alias: docker
+  - mongo:latest
+
+variables:
+  MONGO_DB_URL: "mongodb://mongo:27017/bluefoxglovePersistence"
 
 stages:
-  - build
+  - setup
+  - test
 
-build:
-  stage: build
+setup:
+  stage: setup
   script:
-    - docker build -t bluefoxglove-mongodb .
+    - echo "Setting up the database..."
+    - mongosh --eval 'db.createCollection("gameCollection")' $MONGO_DB_URL
+    - mongosh --eval 'db.createCollection("playerCollection")' $MONGO_DB_URL
+    - mongosh --eval 'db.createCollection("characterCollection")' $MONGO_DB_URL
+
+test:
+  stage: test
+  script:
+    - echo "Testing the database..."
+    - mongosh --eval 'db.getCollectionNames().includes("gameCollection")' $MONGO_DB_URL
+    - mongosh --eval 'db.getCollectionNames().includes("playerCollection")' $MONGO_DB_URL
+    - mongosh --eval 'db.getCollectionNames().includes("characterCollection")' $MONGO_DB_URL
